@@ -1,0 +1,16 @@
+<h2><%= link_to Sneaker.find(photo.sneaker_id).name, photo %></h2>
+
+<p>
+  <strong>Description:</strong>
+  <%= photo.description %>
+</p>
+
+<div>
+  <%= image_tag photo.image %>
+</div>
+
+
+<%= link_to 'Edit', edit_photo_path(photo) %>
+<%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<hr>

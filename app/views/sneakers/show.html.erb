@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sneaker.name %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= Brand.find(@sneaker.brand).title %>
+</p>
+
+<p>
+  <strong>Sex:</strong>
+  <%= @sneaker.sex %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @sneaker.price %>
+</p>
+
+<%= link_to 'Edit', edit_sneaker_path(@sneaker) %> |
+<%= link_to 'Back', sneakers_path %>
+
+<hr>
+
+<%#= render 'photos/index' %>
+
+<% @photos.each do |photo| %>
+  <%= render 'photos/show', photo: photo %>
+<% end %>
+
+<%= render 'photos/form', photo: Photo.new %>

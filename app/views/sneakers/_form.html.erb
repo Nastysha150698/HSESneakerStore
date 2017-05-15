@@ -1,0 +1,38 @@
+<%= form_for(sneaker) do |f| %>
+  <% if sneaker.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sneaker.errors.count, "error") %> prohibited this sneaker from being saved:</h2>
+
+      <ul>
+      <% sneaker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :brand %>
+    <%#= f.text_field :brand %>
+    <%= select("sneaker", "brand", Brand.all.collect { |b| [b.title, b.id] }, { include_blank: true }) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.text_field :sex %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
